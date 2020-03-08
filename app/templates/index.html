@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+        Welcome to Weather Sentiments.
+    </h1>
+    <h3>
+        Here is some information.
+    </h3>
+    <hr>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.precip.label }}
+            {{ form.precip(size=16) }}
+            {% for error in form.precip.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.snow.label }}
+            {{ form.snow(size=16) }}
+            {% for error in form.snow.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.tavg.label }}
+            {{ form.tavg(size=16) }}<br>
+            {% for error in form.tavg.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.tmax.label }}
+            {{ form.tmax(size=16) }}
+            {% for error in form.tmax.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.tmin.label }}
+            {{ form.tmin(size=16) }}
+            {% for error in form.tmin.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
